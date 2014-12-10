@@ -56,6 +56,9 @@ int main(int argc, char **argv)
 	} while (valeur != 0);
 	//Affiche la liste de toutes les valeurs entrées par l'utilisateur
 	AfficherElementListe();
+	system("pause");
+	//Libération de la mémoire
+	LibererMemoire();
 
 	return 0;
 }
