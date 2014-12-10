@@ -14,6 +14,8 @@ struct Element
 Element* premierElement = NULL;
 
 void AjouterElement(int donnee);
+void AfficherElementListe();
+void LibererMemoire();
 
 int main(int argc, char **argv)
 {
@@ -43,12 +45,17 @@ int main(int argc, char **argv)
 	//Boucle principale du programme 
 	do
 	{
-
+		cout << "Entrez un nombre: ";
+		cin >> valeur;
+		if (valeur != 0)
+		{
+			//Appel de la fonction AjouterValeur
+			AjouterElement(valeur);
+		}
 	} while (valeur != 0);
 
 	return 0;
 }
-
 
 void  AjouterElement(int donnee)
 {
@@ -60,7 +67,31 @@ void  AjouterElement(int donnee)
 	Pointeur->valeur = donnee;
 
 	//Initialisation du membre ptrSuivant
-	//Incertains risque de plantage probable
+	//Embêtant déboguer le programme pour voir si tout fonctionne bien
+	//Et qu'un élément pointe bien sur le prochaine élément
 	Pointeur->ptrSuivant = premierElement;
+	//cette ligne est correcte 
 	premierElement = Pointeur;
+}
+void AfficherElementListe()
+{
+	//Pointeur temporaire 
+	Element* Pointeur = premierElement;
+	while (Pointeur != NULL)
+	{
+		//Affiche la valeur contenu dans le premier élément
+		cout << Pointeur->valeur << "\n";
+		//On passe au pointeur suivant
+		Pointeur = Pointeur->ptrSuivant;
+	}
+}
+void LibererMemoire()
+{
+	//Pointeur temporaire pointant l'élément en tête de liste
+	Element* Pointeur = premierElement;
+	while (Pointeur != NULL)
+	{
+		delete Pointeur;
+		premierElement = Pointeur->ptrSuivant;
+	}
 }
