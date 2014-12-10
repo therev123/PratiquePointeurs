@@ -1,9 +1,7 @@
 //Ce programme demande à l'utilisateur de saisir un nombre 
 //La valeur 0 marque la fin des données.Le programme affiche,
 //à la fin, la liste de tous les nombres entrés par l'utilisateur
-//ainsi que la somme total des nombres.
-//Date de création: 25 Novembre 2014
-//Date de modification: 28 Novembre 2014 
+//ainsi que la somme total de ces nombres. 
 //Programmeur: Bryan Tremblay
 #include <iostream>
 using namespace std;
@@ -49,4 +47,20 @@ int main(int argc, char **argv)
 	} while (valeur != 0);
 
 	return 0;
+}
+
+
+void  AjouterElement(int donnee)
+{
+	//Pointeur temporaire
+	Element* Pointeur = NULL;
+	//Allocation dynamique d'un objet de type Element
+	Pointeur = new Element;
+	//Initialisation du membre valeur à la valeur du paramètre donnee
+	Pointeur->valeur = donnee;
+
+	//Initialisation du membre ptrSuivant
+	//Incertains risque de plantage probable
+	Pointeur->ptrSuivant = premierElement;
+	premierElement = Pointeur;
 }
