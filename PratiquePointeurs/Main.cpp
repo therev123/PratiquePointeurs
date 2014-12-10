@@ -13,8 +13,9 @@ struct Element
 	int valeur;
 	Element* ptrSuivant = NULL;
 };
-
 Element* premierElement = NULL;
+
+void AjouterElement(int donnee);
 
 int main(int argc, char **argv)
 {
