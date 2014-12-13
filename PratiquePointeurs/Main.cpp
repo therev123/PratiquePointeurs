@@ -4,6 +4,7 @@
 //ainsi que la somme total de ces nombres. 
 //Programmeur: Bryan Tremblay
 #include <iostream>
+#include "MesFonctions.h"
 using namespace std;
 
 struct Element
@@ -48,7 +49,6 @@ int main(int argc, char **argv)
 
 	return 0;
 }
-
 
 void  AjouterElement(int donnee)
 {
